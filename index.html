@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #FAF8F5; font-family: 'Inter', 'Helvetica Neue', sans-serif; color: #10192E; -webkit-font-smoothing: antialiased; }
+  a { color: #10192E; text-decoration: none; }
+  a:hover { color: #E8402C; }
+  input, select, button { font-family: 'Inter', sans-serif; }
+  input::placeholder { color: #8A93A6; }
+  @keyframes dashflow { to { stroke-dashoffset: -28; } }
+  @keyframes nodepulse { 0%,100% { opacity: .35; transform: scale(1); } 50% { opacity: 1; transform: scale(1.5); } }
+</style>
+</helmet>
+
+<!-- ============ STICKY HEADER ============ -->
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(250,248,245,.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(16,25,46,.08)">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; gap: 32px">
+    <a href="#top" style="display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; letter-spacing: -0.02em; color: #10192E">
+      <span style="width: 30px; height: 30px; border-radius: 8px; background: #10192E; display: inline-flex; align-items: center; justify-content: center">
+        <svg width="16" height="16" viewBox="0 0 16 16"><circle cx="3" cy="12" r="2" fill="{{ accent }}"></circle><path d="M4 11 L12 3" stroke="{{ accent }}" stroke-width="2" stroke-linecap="round"></path><circle cx="13" cy="3" r="1.6" fill="#FAF8F5"></circle></svg>
+      </span>
+      Record<span style="color: {{ accent }}">Express</span>
+    </a>
+    <nav style="display: flex; gap: 26px; font-size: 14.5px; font-weight: 500; color: #3D4A63; margin-left: auto; flex-wrap: wrap">
+      <a href="#services" style="color: #3D4A63">Services</a>
+      <a href="#sectors" style="color: #3D4A63">Sectors</a>
+      <a href="#why" style="color: #3D4A63">About</a>
+      <a href="#quote" style="color: #3D4A63">Careers</a>
+      <a href="#footer" style="color: #3D4A63">Contact</a>
+    </nav>
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; color: #8A93A6">
+      <a href="#top" style="color: #8A93A6">FR</a><span style="color: #D8D2C8">·</span>
+      <a href="#top" style="color: #8A93A6">NL</a><span style="color: #D8D2C8">·</span>
+      <a href="#top" style="color: #10192E; border-bottom: 2px solid {{ accent }}; padding-bottom: 1px">EN</a>
+    </div>
+    <a href="#quote" style="background: {{ accent }}; color: #FFF; font-size: 14px; font-weight: 700; padding: 11px 20px; border-radius: 10px; white-space: nowrap" style-hover="background: #C4321F; color: #FFF">Get a quote</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" data-screen-label="Hero" style="background: #0C1426; color: #FAF8F5; position: relative; overflow: hidden">
+  <div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) 24px clamp(56px, 8vw, 104px); display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; align-items: center; position: relative; z-index: 2">
+    <div data-reveal>
+      <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #9AA6BF; border: 1px solid rgba(250,248,245,.16); border-radius: 999px; padding: 7px 14px; margin-bottom: 28px">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: {{ accent }}"></span>
+        Brussels · Belgium · Since 1993
+      </div>
+      <h1 style="font-size: clamp(38px, 5vw, 60px); line-height: 1.06; letter-spacing: -0.035em; font-weight: 800; margin: 0 0 22px">
+        Your shipment.<br>One dedicated driver.<br><span style="color: {{ accent }}">Zero intermediaries.</span>
+      </h1>
+      <p style="font-size: clamp(16px, 1.6vw, 18.5px); line-height: 1.6; color: #B7C0D4; max-width: 480px; margin: 0 0 34px">
+        Same-day and next-day express delivery across Brussels and Belgium — with our own fleet, our own drivers, and no hand-offs. Since 1993.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 30px">
+        <a href="#quote" style="background: {{ accent }}; color: #FFF; font-weight: 700; font-size: 15.5px; padding: 15px 26px; border-radius: 12px">Get an instant quote</a>
+        <a href="#track" style="border: 1px solid rgba(250,248,245,.25); color: #FAF8F5; font-weight: 600; font-size: 15.5px; padding: 15px 26px; border-radius: 12px" style-hover="border-color: #FAF8F5; color: #FAF8F5">Track a shipment</a>
+      </div>
+      <div id="track" style="display: flex; max-width: 440px; background: rgba(250,248,245,.07); border: 1px solid rgba(250,248,245,.14); border-radius: 12px; padding: 5px; gap: 5px">
+        <input value="{{ trackingNo }}" onChange="{{ onTracking }}" placeholder="Tracking number — e.g. RE-2604-8841" style="flex: 1; background: transparent; border: none; outline: none; color: #FAF8F5; font-size: 14px; padding: 10px 14px; min-width: 0">
+        <button onClick="{{ onTrackSubmit }}" style="background: rgba(250,248,245,.12); color: #FAF8F5; border: none; border-radius: 8px; font-weight: 600; font-size: 13.5px; padding: 10px 18px; cursor: pointer">{{ trackLabel }}</button>
+      </div>
+    </div>
+    <div data-reveal style="display: flex; justify-content: center">
+      <svg viewBox="0 0 460 400" style="width: 100%; max-width: 480px; height: auto" aria-label="Delivery routes across Belgium">
+        <path d="M 80 300 C 140 220, 180 140, 250 90" fill="none" stroke="{{ accent }}" stroke-width="2" stroke-dasharray="6 8" stroke-linecap="round" style="animation: {{ routeAnim }}"></path>
+        <path d="M 80 300 C 170 290, 260 260, 360 180" fill="none" stroke="rgba(250,248,245,.35)" stroke-width="1.5" stroke-dasharray="4 9" stroke-linecap="round" style="animation: {{ routeAnimSlow }}"></path>
+        <path d="M 80 300 C 130 330, 220 340, 310 330" fill="none" stroke="rgba(250,248,245,.25)" stroke-width="1.5" stroke-dasharray="4 9" stroke-linecap="round" style="animation: {{ routeAnimSlow }}"></path>
+        <path d="M 250 90 C 300 110, 340 140, 360 180" fill="none" stroke="rgba(250,248,245,.2)" stroke-width="1.5" stroke-dasharray="3 8" stroke-linecap="round"></path>
+        <circle cx="80" cy="300" r="7" fill="{{ accent }}"></circle>
+        <circle cx="80" cy="300" r="14" fill="none" stroke="{{ accent }}" stroke-width="1.5" opacity=".4" style="animation: nodepulse 2.4s ease-in-out infinite; transform-origin: 80px 300px"></circle>
+        <circle cx="250" cy="90" r="5" fill="#FAF8F5"></circle>
+        <circle cx="360" cy="180" r="5" fill="#FAF8F5" opacity=".7"></circle>
+        <circle cx="310" cy="330" r="5" fill="#FAF8F5" opacity=".5"></circle>
+        <text x="98" y="306" fill="#FAF8F5" font-size="13" font-weight="600" font-family="Inter, sans-serif">Brussels HQ</text>
+        <text x="264" y="88" fill="#B7C0D4" font-size="12" font-family="Inter, sans-serif">Antwerp</text>
+        <text x="374" y="178" fill="#B7C0D4" font-size="12" font-family="Inter, sans-serif">Liège</text>
+        <text x="324" y="336" fill="#B7C0D4" font-size="12" font-family="Inter, sans-serif">Charleroi</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST BAR ============ -->
+<section data-screen-label="Trust bar" style="background: #FAF8F5; border-bottom: 1px solid rgba(16,25,46,.07)">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 28px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 40px; justify-content: space-between">
+    <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 13.5px; font-weight: 600; color: #3D4A63">
+      <span style="display: flex; align-items: center; gap: 8px"><span style="width: 5px; height: 5px; border-radius: 50%; background: {{ accent }}"></span>Since 1993</span>
+      <span style="display: flex; align-items: center; gap: 8px"><span style="width: 5px; height: 5px; border-radius: 50%; background: {{ accent }}"></span>Own fleet</span>
+      <span style="display: flex; align-items: center; gap: 8px"><span style="width: 5px; height: 5px; border-radius: 50%; background: {{ accent }}"></span>EcoVadis rated</span>
+      <span style="display: flex; align-items: center; gap: 8px"><span style="width: 5px; height: 5px; border-radius: 50%; background: {{ accent }}"></span>24/7 availability</span>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: center; opacity: .45">
+      <span style="font-family: monospace; font-size: 12px; border: 1px dashed #8A93A6; border-radius: 6px; padding: 6px 14px; color: #3D4A63">client logo</span>
+      <span style="font-family: monospace; font-size: 12px; border: 1px dashed #8A93A6; border-radius: 6px; padding: 6px 14px; color: #3D4A63">client logo</span>
+      <span style="font-family: monospace; font-size: 12px; border: 1px dashed #8A93A6; border-radius: 6px; padding: 6px 14px; color: #3D4A63">client logo</span>
+      <span style="font-family: monospace; font-size: 12px; border: 1px dashed #8A93A6; border-radius: 6px; padding: 6px 14px; color: #3D4A63">client logo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" data-screen-label="Services" style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 8vw, 110px) 24px">
+  <div data-reveal style="max-width: 560px; margin-bottom: 48px">
+    <p style="font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: {{ accent }}; margin: 0 0 12px">Services</p>
+    <h2 style="font-size: clamp(28px, 3.4vw, 40px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; margin: 0 0 14px">Delivery, at the speed your business runs</h2>
+    <p style="font-size: 16px; line-height: 1.6; color: #5A6579; margin: 0">From an urgent same-day run across Brussels to a fixed daily distribution route — one team, one fleet, one point of contact.</p>
+  </div>
+  <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px">
+    <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
+      <div style="background: #FFF; border: 1px solid rgba(16,25,46,.08); border-radius: 16px; padding: 28px 26px; display: flex; flex-direction: column; gap: 14px" style-hover="border-color: rgba(232,64,44,.4); transform: translateY(-3px); transition: all .2s ease">
+        <span style="width: 42px; height: 42px; border-radius: 11px; background: rgba(232,64,44,.09); display: inline-flex; align-items: center; justify-content: center; color: {{ accent }}; font-size: 17px; font-weight: 800">{{ s.glyph }}</span>
+        <h3 style="font-size: 18px; font-weight: 700; letter-spacing: -0.015em; margin: 0">{{ s.title }}</h3>
+        <p style="font-size: 14.5px; line-height: 1.55; color: #5A6579; margin: 0; flex: 1">{{ s.desc }}</p>
+        <a href="#quote" style="font-size: 14px; font-weight: 700; color: {{ accent }}">Learn more →</a>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ============ SECTORS ============ -->
+<section id="sectors" data-screen-label="Sectors" style="background: #0C1426; color: #FAF8F5">
+  <div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 8vw, 110px) 24px">
+    <div data-reveal style="max-width: 560px; margin-bottom: 48px">
+      <p style="font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: {{ accent }}; margin: 0 0 12px">Sectors</p>
+      <h2 style="font-size: clamp(28px, 3.4vw, 40px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; margin: 0 0 14px">Specialist logistics for demanding sectors</h2>
+      <p style="font-size: 16px; line-height: 1.6; color: #B7C0D4; margin: 0">Thirty years of dedicated transport for industries where a missed deadline isn't an option.</p>
+    </div>
+    <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
+      <sc-for list="{{ sectors }}" as="sec" hint-placeholder-count="4">
+        <div style="background: rgba(250,248,245,.05); border: 1px solid rgba(250,248,245,.1); border-radius: 18px; padding: 30px 28px; display: flex; flex-direction: column; gap: 12px; position: relative; overflow: hidden" style-hover="border-color: rgba(232,64,44,.5); background: rgba(250,248,245,.07); transition: all .2s ease">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+            <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.015em; margin: 0">{{ sec.title }}</h3>
+            <svg width="52" height="20" viewBox="0 0 52 20"><circle cx="4" cy="16" r="3" fill="{{ accent }}"></circle><path d="M6 14 L44 5" stroke="{{ accent }}" stroke-width="1.5" stroke-dasharray="3 4" stroke-linecap="round" style="animation: {{ routeAnimSlow }}"></path><circle cx="47" cy="4" r="2.5" fill="#FAF8F5"></circle></svg>
+          </div>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #B7C0D4; margin: 0; flex: 1">{{ sec.desc }}</p>
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .04em; color: #FAF8F5; background: rgba(232,64,44,.18); border: 1px solid rgba(232,64,44,.35); border-radius: 999px; padding: 6px 13px">{{ sec.badge }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section data-screen-label="How it works" style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 8vw, 110px) 24px">
+  <div data-reveal style="text-align: center; max-width: 540px; margin: 0 auto 56px">
+    <p style="font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: {{ accent }}; margin: 0 0 12px">How it works</p>
+    <h2 style="font-size: clamp(28px, 3.4vw, 40px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; margin: 0">From your call to proof of delivery</h2>
+  </div>
+  <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 36px; position: relative">
+    <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
+      <div style="display: flex; flex-direction: column; gap: 14px; text-align: center; align-items: center">
+        <div style="display: flex; align-items: center; gap: 10px; width: 100%; justify-content: center">
+          <span style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(16,25,46,.15))"></span>
+          <span style="width: 48px; height: 48px; border-radius: 50%; background: #0C1426; color: #FAF8F5; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 17px; flex-shrink: 0; border: 2px solid {{ accent }}">{{ st.n }}</span>
+          <span style="flex: 1; height: 1px; background: linear-gradient(90deg, rgba(16,25,46,.15), transparent)"></span>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 700; letter-spacing: -0.015em; margin: 0">{{ st.title }}</h3>
+        <p style="font-size: 14.5px; line-height: 1.6; color: #5A6579; margin: 0; max-width: 280px">{{ st.desc }}</p>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ============ DIFFERENTIATOR ============ -->
+<section id="why" data-screen-label="Why Record" style="background: #F1EDE6">
+  <div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 8vw, 110px) 24px">
+    <div data-reveal style="max-width: 620px; margin-bottom: 48px">
+      <p style="font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: {{ accent }}; margin: 0 0 12px">Why Record Express</p>
+      <h2 style="font-size: clamp(28px, 3.4vw, 40px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; margin: 0">Why not just use a big carrier?</h2>
+    </div>
+    <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
+      <sc-for list="{{ diffs }}" as="d" hint-placeholder-count="3">
+        <div style="background: #FFF; border-radius: 16px; padding: 28px 26px; display: flex; flex-direction: column; gap: 16px">
+          <p style="font-size: 13px; font-weight: 600; color: #8A93A6; margin: 0; text-decoration: line-through">{{ d.them }}</p>
+          <div style="display: flex; align-items: center; gap: 10px">
+            <span style="width: 22px; height: 22px; border-radius: 50%; background: {{ accent }}; color: #FFF; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0">✓</span>
+            <h3 style="font-size: 17px; font-weight: 700; letter-spacing: -0.01em; margin: 0">{{ d.us }}</h3>
+          </div>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #5A6579; margin: 0">{{ d.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUSTAINABILITY ============ -->
+<section data-screen-label="Sustainability" style="max-width: 1200px; margin: 0 auto; padding: clamp(44px, 5vw, 64px) 24px">
+  <div data-reveal style="border: 1px solid rgba(16,25,46,.1); border-radius: 18px; padding: 30px clamp(24px, 4vw, 44px); display: flex; flex-wrap: wrap; align-items: center; gap: 24px 44px; background: #FFF">
+    <div style="display: flex; align-items: center; gap: 16px">
+      <span style="width: 58px; height: 58px; border-radius: 50%; border: 3px solid #4C7A45; color: #4C7A45; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; line-height: 1">59<span style="font-size: 8.5px; font-weight: 700; letter-spacing: .04em">/100</span></span>
+      <div>
+        <p style="font-size: 15px; font-weight: 700; margin: 0">EcoVadis rated 59/100</p>
+        <p style="font-size: 13px; color: #5A6579; margin: 2px 0 0">Independently assessed sustainability</p>
+      </div>
+    </div>
+    <p style="font-size: 14.5px; line-height: 1.6; color: #5A6579; margin: 0; flex: 1; min-width: 260px">Optimized routing keeps empty kilometres to a minimum, and we're steadily electrifying our Brussels fleet — express doesn't have to mean excess.</p>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section data-screen-label="Testimonials" style="max-width: 1200px; margin: 0 auto; padding: clamp(44px, 6vw, 80px) 24px clamp(64px, 8vw, 110px)">
+  <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
+    <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="3">
+      <figure style="background: #FFF; border: 1px solid rgba(16,25,46,.08); border-radius: 16px; padding: 30px 28px; margin: 0; display: flex; flex-direction: column; gap: 18px">
+        <span style="color: {{ accent }}; font-size: 34px; font-weight: 800; line-height: .6; font-family: Georgia, serif">“</span>
+        <blockquote style="font-size: 15.5px; line-height: 1.65; color: #10192E; margin: 0; flex: 1">{{ q.text }}</blockquote>
+        <figcaption style="font-size: 13px; color: #8A93A6">
+          <span style="font-weight: 700; color: #10192E">{{ q.who }}</span> · {{ q.sector }}
+        </figcaption>
+      </figure>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA / QUOTE FORM ============ -->
+<section id="quote" data-screen-label="Quote form" style="background: #0C1426; position: relative; overflow: hidden">
+  <div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 8vw, 110px) 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; align-items: center">
+    <div data-reveal style="color: #FAF8F5">
+      <h2 style="font-size: clamp(30px, 3.8vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 18px">Need it there today?<br><span style="color: {{ accent }}">Let's move.</span></h2>
+      <p style="font-size: 16.5px; line-height: 1.6; color: #B7C0D4; margin: 0 0 28px; max-width: 420px">Tell us what, where and when. Our dispatch team responds within minutes — a dedicated vehicle can be at your door within the hour.</p>
+      <p style="font-size: 14px; color: #8A93A6; margin: 0">Prefer to drive? <a href="#footer" style="color: #FAF8F5; font-weight: 600; border-bottom: 1px solid {{ accent }}">Become a Record driver — join us</a></p>
+    </div>
+    <div data-reveal style="background: #FAF8F5; border-radius: 20px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px">
+      <h3 style="font-size: 19px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 4px">Request a quote</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
+        <input placeholder="Pickup location" style="border: 1px solid rgba(16,25,46,.15); border-radius: 10px; padding: 13px 14px; font-size: 14px; background: #FFF; outline-color: {{ accent }}; min-width: 0">
+        <input placeholder="Destination" style="border: 1px solid rgba(16,25,46,.15); border-radius: 10px; padding: 13px 14px; font-size: 14px; background: #FFF; outline-color: {{ accent }}; min-width: 0">
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
+        <select style="border: 1px solid rgba(16,25,46,.15); border-radius: 10px; padding: 13px 12px; font-size: 14px; background: #FFF; color: #3D4A63">
+          <option>Urgency: Same-day</option>
+          <option>Urgency: Within the hour</option>
+          <option>Urgency: Next-day</option>
+          <option>Urgency: Scheduled route</option>
+        </select>
+        <select style="border: 1px solid rgba(16,25,46,.15); border-radius: 10px; padding: 13px 12px; font-size: 14px; background: #FFF; color: #3D4A63">
+          <option>Parcel type: Documents</option>
+          <option>Parcel type: Medical / cold chain</option>
+          <option>Parcel type: Spare parts</option>
+          <option>Parcel type: Bulky / Home+</option>
+        </select>
+      </div>
+      <button onClick="{{ onQuote }}" style="background: {{ accent }}; color: #FFF; border: none; border-radius: 12px; font-weight: 700; font-size: 15.5px; padding: 15px; cursor: pointer; margin-top: 4px">{{ quoteLabel }}</button>
+      <p style="font-size: 12px; color: #8A93A6; margin: 0; text-align: center">Response within 15 minutes, 24/7</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="footer" data-screen-label="Footer" style="background: #080E1C; color: #9AA6BF; font-size: 14px">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 56px 24px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 36px">
+    <div>
+      <p style="font-weight: 800; font-size: 17px; color: #FAF8F5; margin: 0 0 14px">Record<span style="color: {{ accent }}">Express</span></p>
+      <p style="line-height: 1.7; margin: 0">Rue de l'Express 12<br>1000 Brussels, Belgium<br><a href="#footer" style="color: #9AA6BF">+32 2 555 19 93</a><br><a href="#footer" style="color: #9AA6BF">dispatch@recordexpress.com</a></p>
+    </div>
+    <div>
+      <p style="font-weight: 700; color: #FAF8F5; margin: 0 0 14px">Services</p>
+      <div style="display: flex; flex-direction: column; gap: 9px">
+        <a href="#services" style="color: #9AA6BF">Express / Same-day</a>
+        <a href="#services" style="color: #9AA6BF">Next-day</a>
+        <a href="#services" style="color: #9AA6BF">Last Mile &amp; Home+</a>
+        <a href="#services" style="color: #9AA6BF">Distribution routes</a>
+      </div>
+    </div>
+    <div>
+      <p style="font-weight: 700; color: #FAF8F5; margin: 0 0 14px">Company</p>
+      <div style="display: flex; flex-direction: column; gap: 9px">
+        <a href="#why" style="color: #9AA6BF">About us</a>
+        <a href="#quote" style="color: #9AA6BF">Careers — drive with us</a>
+        <a href="#footer" style="color: #9AA6BF">Privacy &amp; legal</a>
+        <a href="#footer" style="color: #9AA6BF">Terms of transport</a>
+      </div>
+    </div>
+    <div>
+      <p style="font-weight: 700; color: #FAF8F5; margin: 0 0 14px">Language</p>
+      <div style="display: flex; gap: 12px; font-weight: 600">
+        <a href="#footer" style="color: #9AA6BF">FR</a>
+        <a href="#footer" style="color: #9AA6BF">NL</a>
+        <a href="#footer" style="color: #FAF8F5; border-bottom: 2px solid {{ accent }}">EN</a>
+      </div>
+      <div style="display: flex; gap: 14px; margin-top: 20px">
+        <a href="#footer" style="color: #9AA6BF">LinkedIn</a>
+        <a href="#footer" style="color: #9AA6BF">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div style="border-top: 1px solid rgba(250,248,245,.08)">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12.5px; color: #5A6579">
+      <span>© 2026 Record Express NV/SA — Brussels, Belgium</span>
+      <span>Own fleet · No intermediaries · Since 1993</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#E8402C&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#E8402C&quot;,&quot;#D92B2B&quot;,&quot;#F25C05&quot;],&quot;section&quot;:&quot;Brand&quot;},&quot;animatedRoutes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { trackingNo: "", tracked: false, quoted: false };
+
+  componentDidMount() {
+    const els = document.querySelectorAll("[data-reveal]");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = "1";
+          e.target.style.transform = "translateY(0)";
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach((el) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(18px)";
+      el.style.transition = "opacity .6s ease, transform .6s ease";
+      io.observe(el);
+    });
+    this._io = io;
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+  }
+
+  renderVals() {
+    const accent = this.props.accentColor ?? "#E8402C";
+    const animate = this.props.animatedRoutes ?? true;
+    return {
+      accent,
+      routeAnim: animate ? "dashflow 1.4s linear infinite" : "none",
+      routeAnimSlow: animate ? "dashflow 2.6s linear infinite" : "none",
+      trackingNo: this.state.trackingNo,
+      onTracking: (e) => this.setState({ trackingNo: e.target.value, tracked: false }),
+      onTrackSubmit: () => this.setState({ tracked: true }),
+      trackLabel: this.state.tracked ? "Searching…" : "Track",
+      onQuote: () => this.setState({ quoted: true }),
+      quoteLabel: this.state.quoted ? "Request sent ✓" : "Get my quote",
+      services: [
+        { glyph: "⚡", title: "Express / Same-Day", desc: "A dedicated vehicle picks up within the hour and drives straight to the destination. No sorting, no waiting." },
+        { glyph: "→", title: "Next-Day", desc: "Guaranteed next-morning delivery anywhere in Belgium, collected today from your site or supplier." },
+        { glyph: "⌂", title: "Last Mile & Home+", desc: "B2C last-mile delivery, including two-person Home+ service for bulky goods — up the stairs, into the room." },
+        { glyph: "↻", title: "Regular Distribution Routes", desc: "Fixed daily or weekly routes between your sites, labs, branches or clients — same driver, same time." }
+      ],
+      sectors: [
+        { title: "Medical & Pharma", desc: "Validated cold-chain transport with real-time temperature monitoring, for labs, hospitals and pharma distributors. Samples, medication and devices — traceable door to door.", badge: "Cold chain · Live temperature monitoring" },
+        { title: "Legal & Banking", desc: "Confidential documents, notarial deeds and banking instruments delivered hand-to-hand by vetted drivers, with signed proof of delivery.", badge: "Confidential · Signed PoD" },
+        { title: "Industry & Automotive", desc: "A production line down is money burning. Urgent spare parts collected from any supplier and driven directly to your plant — day or night.", badge: "24/7 · Direct drive" },
+        { title: "Services & E-commerce", desc: "Reliable last-mile capacity for your customers, plus Home+ two-person delivery for furniture, appliances and other bulky orders.", badge: "Last mile · Home+" }
+      ],
+      steps: [
+        { n: "1", title: "Request", desc: "Call, mail or use the quote form. A dispatcher — a person, not a bot — confirms price and pickup in minutes." },
+        { n: "2", title: "Dedicated pickup within the hour", desc: "One of our own drivers collects your shipment. It never enters a sorting hub and never changes hands." },
+        { n: "3", title: "Live-tracked delivery", desc: "Follow the vehicle in real time to the destination. Signed proof of delivery lands in your inbox on arrival." }
+      ],
+      diffs: [
+        { them: "Hub-and-spoke sorting networks", us: "One dedicated vehicle, door to door", desc: "Big carriers route your parcel through sorting hubs. We drive it straight there — nothing to lose, crush or delay." },
+        { them: "Call centers and ticket queues", us: "A dispatch team that knows you", desc: "You call, a dispatcher in Brussels answers, and they know your account. Decisions in minutes, not escalations." },
+        { them: "Drivers lost in the city", us: "Brussels LEZ & city-access experts", desc: "Low-emission zones, pedestrian centres, hospital docks, EU-quarter access — we've navigated them daily for 30 years." }
+      ],
+      quotes: [
+        { text: "When a line stops at 6 a.m., Record has a van at our supplier by 7. They've saved us entire production days.", who: "Operations Manager", sector: "Automotive supplier, Flanders" },
+        { text: "Temperature-logged, on time, every time. Our QA audits their transport reports and they always pass.", who: "Logistics Coordinator", sector: "Pharmaceutical lab, Brussels" },
+        { text: "Sensitive files go hand-to-hand with one driver we know by name. That's why we've stayed for twelve years.", who: "Office Director", sector: "Law firm, Brussels" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+your goal is to create git repo. Create worker on Claudflare and connect this repo to worker. At the end I wnat fully working website under subdomain test.webhelpagency.com. Use clause chrome exctension to make all confugurations on Claudflare side.
